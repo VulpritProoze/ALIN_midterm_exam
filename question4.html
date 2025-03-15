@@ -1,0 +1,105 @@
+<script>
+    // Initializing task array
+    let tasks = [];
+
+    // Initializing task id
+    let taskId = 1;
+
+    // Creating task model
+    class Task {
+        constructor(id, name, description) {
+            this.id = id;
+            this.name = name;
+            this.description = description;
+        }
+    }
+
+    // Function to create a new task
+    const createTask = (name, description) => {
+        const newTask = {
+            id: taskId,  
+            name: name,
+            description: description
+        };
+        taskId++;
+        tasks.push(newTask); 
+        console.log(`Task added: '${name}'`);
+    }
+
+    // Function to delete a task by ID
+    const deleteTask = (id) => {
+        const index = tasks.filter(task => task.id === id);
+        if (index === -1) {
+            console.log(`Task of ID '${id}' not found.`);
+            return;
+        }
+        tasks.splice(index, 1);
+        console.log(`Task of ID '${id}' has been successfully deleted`)
+    }
+
+    // Function to update a task
+    const updateTask = (id, name, description) => {
+        const task = tasks.find(task => task.id === id);
+        if (!task) {
+            console.log(`Task '${name}' is not found.`);
+            return;
+        }
+        task.name = newName;
+        task.description = newDescription;
+        console.log(`Task '${task.id}' succesfully updated`)
+    }
+
+    // Function to view all tasks
+    const viewTasks = () => {
+        if (tasks.length === 0) {
+            console.log('No tasks available.');
+            return;
+        }
+        console.log('Tasks List:');
+        tasks.forEach(task => {
+            console.log(`ID: ${task.id}, Name: ${task.name}, Description: ${task.description}`);
+        });
+    }
+
+    // Testing the CRUD app
+    console.log('Viewing task... ');
+    viewTasks();
+    console.log(' ');
+    let name = 'Grab an apple';
+    let description = 'This is colored red.';
+    console.log(`Adding a new task of name: ${name}, and description: ${description}...`);
+    createTask(name, description)
+    console.log(' ');
+    name = 'Grab an orange';
+    description = 'This is colored orange';
+    console.log(`Adding a new task of name: ${name}, and description: ${description}...`);
+    createTask(name, description);
+    console.log(' ');
+    name = 'Eat the fruits';
+    description = 'This is so yummy';
+    console.log(`Adding a new task of name: ${name}, and description: ${description}...`);
+    createTask(name, description);
+    console.log(' ');
+    console.log('Viewing task... ');
+    viewTasks();
+    console.log(' ');
+    let idToDelete = 1;
+    console.log(`Deleting task of ID ${idToDelete}...`);
+    deleteTask(idToDelete);
+    console.log(' ');
+    console.log('Viewing task...');
+    viewTasks();
+    console.log(' ');
+    let idToUpdate = 2;
+    let newName = 'Fix the TV';
+    let newDescription = 'This appliance sucks!';
+    console.log(`Updating task of ID ${idToUpdate} with new name of '${newName}', and new description of '${newDescription}'...`);
+    updateTask(idToUpdate, newName, newDescription);
+    console.log(' ');
+    console.log('Viewing task...');
+    viewTasks();
+    console.log(' ');
+
+</script>
+
+<h1>Go to Inspect Element and check console.</h1>

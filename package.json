@@ -1,0 +1,26 @@
+{
+  "name": "midterm-exam",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "question3": "node question3.js",
+    "question5": "node question5.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VulpritProoze/ALIN_midterm_exam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VulpritProoze/ALIN_midterm_exam/issues"
+  },
+  "homepage": "https://github.com/VulpritProoze/ALIN_midterm_exam#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "sequelize": "^6.37.6"
+  }
+}
